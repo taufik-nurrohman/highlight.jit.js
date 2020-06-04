@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta content="width=device-width" name="viewport">
+    <meta charset="utf-8">
+    <title>JIT Plugin for Highlight.js</title>
+  </head>
+  <body>
+    <header>
+      <h1>Test (TODO)</h1>
+      <p>Treat class name prefixed with <code>lang-</code> or <code>language-</code> as the main language name.</p>
+    </header>
+    <main>
+      <h2>Fortran (Preloaded)</h2>
+      <pre><code class="html css javascript language-fortran php">subroutine test_sub(k)
+    implicit none
+
+  !===============================
+  !   This is a test subroutine
+  !===============================
+
+    integer, intent(in)           :: k
+    double precision, allocatable :: a(:)
+    integer, parameter            :: nmax=10
+    integer                       :: i
+
+    allocate (a(<mark>nmax</mark>))
+
+    do i=1,nmax
+      a(i) = dble(i)*5.d0
+    enddo
+
+    print *, 'Hello world'
+    write (*,*) a(:)
+</code></pre>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+    <script src="../highlight.jit.js"></script>
+    <script>
+    hljs.currentLanguagePath = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/languages/%s.min.js';
+    hljs.currentStyle = 'default';
+    hljs.currentStylePath = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/%s.min.css';
+    hljs.initHighlighting();
+    </script>
+  </body>
+</html>
