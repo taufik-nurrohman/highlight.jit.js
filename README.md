@@ -6,7 +6,7 @@ JIT Plugin for [Highlight.js](https://github.com/highlightjs/highlight.js)
 Usage
 -----
 
-~~~ .js
+~~~ .html
 <!-- Load the JavaScript library along with your pre-defined language highlighter -->
 <script src="highlight.min.js"></script>
 <!-- Let other language highlighter(s) to be loaded by my plugin automatically -->
