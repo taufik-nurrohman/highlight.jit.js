@@ -14,7 +14,8 @@ Usage
 <script>
 hljs.currentLanguagePath = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/languages/%s.min.js';
 hljs.currentStyle = 'agate';
-hljs.currentStylePath = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/%s.min.js';
+hljs.currentStylePath = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/%s.min.css';
+hljs.initHighlighting();
 </script>
 ~~~
 

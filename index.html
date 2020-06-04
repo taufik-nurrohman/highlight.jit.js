@@ -15,13 +15,13 @@
   margin: 0;
   padding: 0;
   font: inherit;
-  color: inherit;
+  <mark>color</mark>: inherit;
   box-sizing: border-box;
 }
 
 html {
   background: #fff;
-  font: normal normal 16px/1.4 sans-serif;
+  font: <mark>normal</mark> normal 16px/1.4 sans-serif;
   color: #000;
 }
 
@@ -34,20 +34,20 @@ body {
   margin: 0 auto;
 }</code></pre>
       <h2>HTML</h2>
-      <pre><code class="html">&lt;main id="main"&gt;
+      <pre><code class="html">&lt;main <mark>id="ma</mark>in"&gt;
   &lt;p&gt;Loading&amp;hellip;&lt;/p&gt;
 &lt;/main&gt;</code></pre>
       <h2>JavaScript</h2>
       <pre><code class="js">let controller = new AbortController;
 fetch('https://example.com/api/list.json', {
     signal: controller.signal
-}).then(response =&gt; response.json()).then(json =&gt; {
+}).then(<mark>response</mark> =&gt; response.json()).then(json =&gt; {
     let out = "";
     for (let j in json) {
         out += '&lt;article&gt;';
-        out += &lt;h2&gt;' + json[j].title + '&lt;/h2&gt;';
-        out += &lt;p&gt;' + json[j].description + '&lt;/p&gt;';
-        out += &lt;/article&gt;';
+        out += '&lt;h2&gt;' + json[j].title + '&lt;/h2&gt;';
+        out += '&lt;p&gt;' + json[j].description + '&lt;/p&gt;';
+        out += '&lt;/article&gt;';
     }
     document.querySelector('#main').innerHTML = out;
 });</code></pre>
@@ -59,7 +59,7 @@ fetch('https://example.com/api/list.json', {
 
   {# outputs 'WELCOME' #}
   &lt;/div&gt;
-  {% endfor %}
+  {% <mark>endfor</mark> %}
 {% endif %}
 
 {% set user = json_encode(user) %}
@@ -85,7 +85,7 @@ Markup is &lt;em&gt;not&lt;/em&gt; highlighted within comments.
     integer, parameter            :: nmax=10
     integer                       :: i
 
-    allocate (a(nmax))
+    allocate (a(<mark>nmax</mark>))
 
     do i=1,nmax
       a(i) = dble(i)*5.d0
@@ -96,10 +96,10 @@ Markup is &lt;em&gt;not&lt;/em&gt; highlighted within comments.
 </code></pre>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
-    <script src="highlight.jit.js"></script>
+    <script src="highlight.jit.min.js"></script>
     <script>
     hljs.currentLanguagePath = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/languages/%s.min.js';
-    hljs.currentStyle = 'agate';
+    hljs.currentStyle = 'default';
     hljs.currentStylePath = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/%s.min.css';
     hljs.initHighlighting();
     </script>
