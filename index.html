@@ -4,10 +4,11 @@
     <meta content="width=device-width" name="viewport">
     <meta charset="utf-8">
     <title>JIT Plugin for Highlight.js</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css" rel="stylesheet">
   </head>
   <body>
     <header>
-      <h1>JIT Plugin for Highlight.js</h1>
+      <h1>JIT Plugin for <a href="https://highlightjs.org" rel="nofollow" target="_blank">Highlight.js</a></h1>
     </header>
     <main>
       <h2>CSS</h2>
@@ -43,10 +44,10 @@ fetch('https://example.com/api/list.json', {
     signal: controller.signal
 }).then(<mark>response</mark> =&gt; response.json()).then(json =&gt; {
     let out = "";
-    for (let j in json) {
+    for (let v of json) {
         out += '&lt;article&gt;';
-        out += '&lt;h2&gt;' + json[j].title + '&lt;/h2&gt;';
-        out += '&lt;p&gt;' + json[j].description + '&lt;/p&gt;';
+        out += '&lt;h2&gt;' + v.title + '&lt;/h2&gt;';
+        out += '&lt;p&gt;' + v.description + '&lt;/p&gt;';
         out += '&lt;/article&gt;';
     }
     document.querySelector('#main').innerHTML = out;
@@ -99,8 +100,6 @@ Markup is &lt;em&gt;not&lt;/em&gt; highlighted within comments.
     <script src="highlight.jit.min.js"></script>
     <script>
     hljs.currentLanguagePath = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/languages/%s.min.js';
-    hljs.currentStyle = 'default';
-    hljs.currentStylePath = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/%s.min.css';
     hljs.initHighlighting();
     </script>
   </body>

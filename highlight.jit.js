@@ -5,14 +5,9 @@
     // Generate CDN folder path
     let parts = src.split('/');
     parts.pop(); // Remove script name
-    parts = parts.join('/');
-    let currentLanguagePath = parts + '/languages/%s.min.js',
-        currentStyle,
-        currentStylePath = parts + '/styles/%s.min.js';
+    let currentLanguagePath = parts.join('/') + '/languages/%s.min.js';
     // Since Highlight.js options is not exposed to public, I need to make my own configure method
     hljs.currentLanguagePath = currentLanguagePath;
-    hljs.currentStyle = currentStyle;
-    hljs.currentStylePath = currentStylePath;
     // Load language if needed
     hljs.addPlugin({
         'before:highlightBlock': ({block, language}) => {
@@ -44,18 +39,4 @@
             }
         }
     });
-    win.addEventListener('DOMContentLoaded', () => {
-        if (!hljs.currentStylePath) {
-            return;
-        }
-        // Load style sheet
-        let link = doc.createElement('link');
-        link.href = hljs.currentStylePath.replace(/%s/, hljs.currentStyle || 'default');
-        link.rel = 'stylesheet';
-        doc.head.appendChild(link);
-        link.addEventListener('error', () => {
-            // Remove on error
-            link.remove();
-        }, false);
-    }, false);
 })(window, document, hljs);

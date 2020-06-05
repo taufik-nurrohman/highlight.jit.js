@@ -13,17 +13,8 @@ Usage
 <script src="highlight.jit.min.js"></script>
 <script>
 hljs.currentLanguagePath = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/languages/%s.min.js';
-hljs.currentStyle = 'agate';
-hljs.currentStylePath = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/%s.min.css';
 hljs.initHighlighting();
 </script>
-~~~
-
-To disable the style sheet loader:
-
-~~~ .js
-hljs.currentStyle = null;
-hljs.currentStylePath = null;
 ~~~
 
 License
